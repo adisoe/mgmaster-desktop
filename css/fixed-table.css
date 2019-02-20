@@ -1,0 +1,30 @@
+.fixed-table-container {
+  height: 300px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+.fixed-table-container table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.fixed-table-container th,
+.fixed-table-container td {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap !important;
+}
+.fixed-table-container th {
+  font-size: 12px;
+}
+.fixed-table-container td:first-child {
+  background: #81d6f4;
+}
+.fixed-table-container tr:last-child td {
+  border-bottom: 1px;
+}
+.fixed-table-container th:last-child,
+.fixed-table-container td:last-child {
+  border-right: 0;
+}

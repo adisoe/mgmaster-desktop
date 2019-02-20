@@ -1,0 +1,197 @@
+body{
+  background: #d9f7f7;
+  font-size: 12px;
+  padding: 0px;
+  margin: 0px;
+}
+.container{
+  background: #d9f7f7;
+}
+.bar-menu{
+  padding-top: 5px;
+  padding-bottom: 3px;
+  background: #C3E0FF;
+}
+.bar-icon{
+  padding-top: 5px;
+  background: #c5f4f7;
+}
+.action-bar{
+  background: black;
+}
+.content-navigation{
+  padding: 5px;
+}
+.content-data{
+  background: #ffffff;
+}
+.filter{
+  background: #E4F1FF;
+}
+.footer{
+  background: #E4F1FF;
+  border-bottom-style: inset;
+  border-top-style: inset;
+  vertical-align: middle;
+}
+.table{
+  width: 100%;
+  border-spacing: 0px;
+  font-size: 12px;
+}
+.table-filter{
+  width: 100%;
+  border-spacing: 2px;
+  font-size: 10px;
+}
+.table-filter-browse{
+  width: 100%;
+  border-spacing: 2px;
+  font-size: 12px;
+}
+.table tr{
+  padding: 0px;
+}
+.table td{
+  font-size: 12px;
+  border: 0.1em #e0e0e0;
+  border-style: inset;
+  padding: 0px;
+}
+.table th{
+  font-size: 12px;
+  border: 1px dotted;
+  padding: 0px;
+  text-align: center;
+  font-weight: normal;
+}
+.nav-menu{
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+}
+.nav-menu:hover{
+  background: 	#E4F1FF;
+}
+.nav-menu:active{
+  background: 	#E4F1FF;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+p{
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+.clearfix {
+  overflow: auto;
+  clear: both;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+li {
+  display: inline;
+}
+.menu-icon{
+  text-align:center;
+  background-color: transparent;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 1px;
+  float:left;
+}
+.nav-icon{
+  text-align:center;
+  background-color: transparent;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-bottom: 1px;
+  vertical-align: middle;
+  float: left;
+}
+.nav-icon-text-right{
+  float: right;
+  padding-top: 20%;
+  padding-left: 3px;
+  font-size: 11px;
+}
+.menu-icon:hover{
+  background-color: #c5f4f7;
+}
+.scroll-horizontal{
+  overflow-x: auto;
+}
+.scroll-horizontal-modal{
+  overflow-x: scroll;
+  overflow-y: scroll;
+  height: 100px;
+}
+.right-navigation{
+  float: right;
+}
+.label-blue{
+  font-size: 11px;
+  font-weight: bolder;
+  background-color: dodgerblue;
+  text-align: center;
+  border-radius: 5px;
+  border: solid blue 2px;
+  padding: 2px;
+}
+.legend-blue{
+  font-size: 11px;
+  font-weight: bolder;
+  background-color: dodgerblue;
+  border-radius: 5px;
+  border: solid blue 2px;
+  padding: 2px;
+}
+.field-style{
+  width: 100%;
+}
+.dialog-main{
+  background: #d9f7f7!important;
+}
+.dialog-header{
+  padding: 10px;
+  box-shadow: inset 0 0 2px;
+  margin-bottom: 5px;
+}
+.ui-dialog .ui-dialog-content{
+  padding: 0.1em!important;
+}
+.fieldset-custom{
+  border: none;
+  border-top: solid 3px dodgerblue;
+  padding-inline-start: 1px!important;
+  padding-inline-end: 1px!important;
+}
+.table-form{
+  width: 100%;
+  font-size: 12px;
+}
+.td-label-form{
+  text-align: right;
+}
+.icon-search{
+  float:left; 
+  padding-left: 3px;
+  padding-right: 3px;
+}
+.div50{
+  width: 50%;
+  float: left;
+}
+form{
+  margin-bottom: 0em;
+}
+
+.fixed-table-container th{
+  background: #81d6f4!important;
+  border: 1px inset grey;
+}
+a.icon-button{
+  color: black!important;
+}
