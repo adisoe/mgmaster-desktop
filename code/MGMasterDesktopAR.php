@@ -11,9 +11,9 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
   
   var $table_fields = array(
     array(
-      'Title' => 'IdTBeli',
-      'ID' => 'idtbeli',  // harus huruf kecil
-      'Type' => 'browse',
+      'Label' => 'IdTBeli',
+      'Column' => 'idtbeli',  // harus huruf kecil
+      'Type' => 'Browse',
       'BrowseModule' => 'Customer',
       'Required' => true,
       'Name' => 'IdTBeli',
@@ -25,8 +25,8 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
       'ShowInList' => true
     ),
     array(
-      'Title' => 'BuktiTBeli',
-      'ID' => 'buktitbeli',
+      'Label' => 'BuktiTBeli',
+      'Column' => 'buktitbeli',
       'Type' => 'text',
       'Required' => true,
       'Name' => 'BuktiTBeli',
@@ -39,8 +39,8 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
       'DefaultValue' => 123
     ),
     array(
-      'Title' => 'BuktiAsli',
-      'ID' => 'buktiasli',
+      'Label' => 'BuktiAsli',
+      'Column' => 'buktiasli',
       'Type' => 'text',
       'Required' => true,
       'Name' => 'BuktiAsli',
@@ -53,9 +53,9 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
       'DefaultValue' => 678
     ),
     array(
-      'Title' => 'TglTBeli',
-      'ID' => 'tgltbeli',
-      'Type' => 'date',
+      'Label' => 'TglTBeli',
+      'Column' => 'tgltbeli',
+      'Type' => 'Date',
       'Required' => true,
       'Name' => 'TglTBeli',
       'Position' => 'left',
@@ -83,7 +83,7 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
   function getColumns() {
     $arr = array();
     foreach ($this->table_fields as $row) {
-      if ($row['Type'] == 'hidden') {
+      if ($row['Type'] == 'Hidden') {
         continue;
       }
       if (!$row['ShowInList']) {
@@ -97,13 +97,13 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
   function getFields() {
     $arr = array(self::getPk());
     foreach ($this->table_fields as $row) {
-      if ($row['Type'] == 'hidden') {
+      if ($row['Type'] == 'Hidden') {
         continue;
       }
       if (!$row['ShowInList']) {
         continue;
       }
-      if ($row['Type'] == 'date') {
+      if ($row['Type'] == 'Date') {
         $row['Name'] = "DATE(" . $row['Name'] . ")";
       }
       $arr[] = $row['Name'];
@@ -174,7 +174,7 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
       if ($row['Name'] == $this->field_pk) {
         $arr[] = self::getPk();
       } else {
-        if ($row['Type'] == 'date') {
+        if ($row['Type'] == 'Date') {
           $row['Name'] = "DATE(" . $row['Name'] . ") as " . $row['Name'];
         }
         $arr[] = $row['Name'];
@@ -206,43 +206,43 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
     $hidden = new ArrayList();
     foreach ($this->table_fields as $row) {
       $field = '';
-      $row['ID'] = $row['ID'] ? $row['ID'] : strtolower($row['Name']);
+      $row['Column'] = $row['Column'] ? $row['Column'] : strtolower($row['Name']);
       $required = $row['Required'] ? "required" : "";
       $required_flag = $row['Required'] ? "<sup style='color: red;'>*</sup>" : "";
       $default_val = '';
       if(isset($row['DefaultValue'])){
         $default_val = $row['DefaultValue'];
       }
-      if ($row['Type'] == 'hidden') {
-        $field = '<input value="0" id="' . $row['ID'] . '" id="' . $row['Name'] . '" type="' . $row['Type'] . '" name="' . $row['Name'] . '" class="' . $row['Class'] . '" value="'.$default_val.'">';
+      if ($row['Type'] == 'Hidden') {
+        $field = '<input value="0" id="' . $row['Column'] . '" id="' . $row['Name'] . '" type="' . $row['Type'] . '" name="' . $row['Name'] . '" class="' . $row['Class'] . '" value="'.$default_val.'">';
       } elseif ($row['Type'] == 'select') {
-        $field = '<td style="width:40%;" class="td-label-form">' . $row['Title'] . $required_flag . '</td>';
+        $field = '<td style="width:40%;" class="td-label-form">' . $row['Label'] . $required_flag . '</td>';
         $field .= '<td>: <select ' . $required . ' name="' . $row['Name'] . '" class="' . $row['Class'] . '">';
-        $field .= '<option>Pilih ' . $row['Title'] . '</option>';
+        $field .= '<option>Pilih ' . $row['Label'] . '</option>';
         foreach ($row['Options'] as $key => $val) {
           $field .= '<option value="' . $key . '">' . $val . '</option>';
         }
         $field .= '</select></td>';
-      } elseif ($row['Type'] == 'browse') {
+      } elseif ($row['Type'] == 'Browse') {
         $module = $row['BrowseModule'];
-        $field = '<td style="width:40%;" class="td-label-form">' . $row['Title'] . $required_flag . '</td>'
-            . '<td>: <input ' . $required . ' id="' . $row['ID'] . '" ' . $row['Attributes'] . ' type="' . $row['Type'] . '" class="' . $row['Class'] . ' input-browse" placeholder="' . $row['Placeholder'] . '" data-module="'.$module.'" value="'.$default_val.'"></td>';
-      } elseif ($row['Type'] == 'date') {
-        $field = '<td style="width:40%;" class="td-label-form">' . $row['Title'] . $required_flag . '</td>'
-            . '<td>: <input ' . $required . ' id="' . $row['ID'] . '" ' . $row['Attributes'] . ' type="text" name="' . $row['Name'] . '" class="' . $row['Class'] . ' datepicker" placeholder="' . $row['Placeholder'] . '" value="'.$default_val.'"></td>';
-      } elseif ($row['Type'] == 'number') {
-        $field = '<td style="width:40%;" class="td-label-form">' . $row['Title'] . $required_flag . '</td>'
+        $field = '<td style="width:40%;" class="td-label-form">' . $row['Label'] . $required_flag . '</td>'
+            . '<td>: <input ' . $required . ' id="' . $row['Column'] . '" ' . $row['Attributes'] . ' type="' . $row['Type'] . '" class="' . $row['Class'] . ' input-browse" placeholder="' . $row['Placeholder'] . '" data-module="'.$module.'" value="'.$default_val.'"></td>';
+      } elseif ($row['Type'] == 'Date') {
+        $field = '<td style="width:40%;" class="td-label-form">' . $row['Label'] . $required_flag . '</td>'
+            . '<td>: <input ' . $required . ' id="' . $row['Column'] . '" ' . $row['Attributes'] . ' type="text" name="' . $row['Name'] . '" class="' . $row['Class'] . ' datepicker" placeholder="' . $row['Placeholder'] . '" value="'.$default_val.'"></td>';
+      } elseif ($row['Type'] == 'Number') {
+        $field = '<td style="width:40%;" class="td-label-form">' . $row['Label'] . $required_flag . '</td>'
             . '<td>: <input type="hidden" class="clear" name="' . $row['Name'] . '">'
-            . '<input ' . $required . ' id="' . $row['ID'] . '" ' . $row['Attributes'] . ' type="text" class="' . $row['Class'] . ' numeric" placeholder="' . $row['Placeholder'] . '" value="'.$default_val.'"></td>';
-      } elseif ($row['Type'] == 'textarea') {
-        $field = '<td style="width:40%;" class="td-label-form">' . $row['Title'] . $required_flag . '</td>'
-            . '<td>: <textarea ' . $required . ' name="' . $row['Name'] . '" id="' . $row['ID'] . '" ' . $row['Attributes'] . ' class="' . $row['Class'] . '" placeholder="' . $row['Placeholder'] . '">'.$default_val.'</textarea></td>';
+            . '<input ' . $required . ' id="' . $row['Column'] . '" ' . $row['Attributes'] . ' type="text" class="' . $row['Class'] . ' numeric" placeholder="' . $row['Placeholder'] . '" value="'.$default_val.'"></td>';
+      } elseif ($row['Type'] == 'Text') {
+        $field = '<td style="width:40%;" class="td-label-form">' . $row['Label'] . $required_flag . '</td>'
+            . '<td>: <textarea ' . $required . ' name="' . $row['Name'] . '" id="' . $row['Column'] . '" ' . $row['Attributes'] . ' class="' . $row['Class'] . '" placeholder="' . $row['Placeholder'] . '">'.$default_val.'</textarea></td>';
       } else {
-        $field = '<td style="width:40%;" class="td-label-form">' . $row['Title'] . $required_flag . '</td>'
-            . '<td>: <input ' . $required . ' id="' . $row['ID'] . '" ' . $row['Attributes'] . ' type="' . $row['Type'] . '" name="' . $row['Name'] . '" class="' . $row['Class'] . '" placeholder="' . $row['Placeholder'] . '" value="'.$default_val.'"></td>';
+        $field = '<td style="width:40%;" class="td-label-form">' . $row['Label'] . $required_flag . '</td>'
+            . '<td>: <input ' . $required . ' id="' . $row['Column'] . '" ' . $row['Attributes'] . ' type="' . $row['Type'] . '" name="' . $row['Name'] . '" class="' . $row['Class'] . '" placeholder="' . $row['Placeholder'] . '" value="'.$default_val.'"></td>';
       }
       $row['Field'] = $field;
-      if ($row['Group'] == 'Id' && $row['Type'] == 'hidden') {
+      if ($row['Group'] == 'Id' && $row['Type'] == 'Hidden') {
         $hidden->push($row);
       } elseif ($row['Group'] == 'Id') {
         $id->push($row);
@@ -258,6 +258,27 @@ class MGMasterDesktopAR extends ActiveRecord\Model {
       'Left' => $left,
       'Right' => $right
     );
+  }
+  
+  function convertRow($arr) {
+    foreach ($arr as $idx => $row) {
+      //echo $idx.' '.$row.'<br>';
+      foreach ($this->table_fields as $idx_col => $col) {
+        if (strtolower($col['Column']) == $idx) {
+          $arr[$col['Column']] = $row;
+          // date time          
+          if ($row instanceof \DateTime) {
+            //echo 'yeah';die();
+            $arr[$col['Column']] = $row->format('Y-m-d H:i:s');
+          }
+//          if ($col['Type'] == 'File') {
+//            $arr[$col['Column'] . '_Preview'] = $row;
+//          }
+          continue;
+        }
+      }
+    }
+    return $arr;
   }
 
 }

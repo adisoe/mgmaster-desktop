@@ -61,11 +61,11 @@ class MGMasterDesktopPage_Controller extends Page_Controller {
                 //'Form' => call_user_func(array($this->table_class, 'getListForm')),
                 'Form' => $table->getListForm(),
                 'ActiveField' => $table->active_field
-            ))->renderWith(array('CrudPage', 'IlhamPage'));
+            ))->renderWith(array('MGCrudPage', 'MGMasterPage'));
   }
 
   public function test() {
-    return $this->renderWith(array('CrudPage', 'IlhamPage'));
+    return $this->renderWith(array('MGCrudPage', 'MGMasterPage'));
   }
 
   public function search_ajax() {
@@ -77,7 +77,10 @@ class MGMasterDesktopPage_Controller extends Page_Controller {
     $data = $table->search($_REQUEST);
     $arr = array();
     foreach ($data['list_data'] as $row) {
-      $arr[] = array_values($row->attributes());
+      //$temp = array_values($row->attributes());
+      $temp = $row->attributes();
+      $temp = $table->convertRow($temp);
+      $arr[] = array_values($temp);
     }
     $data['list_data'] = $arr;
     echo json_encode($data);

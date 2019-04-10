@@ -48,7 +48,7 @@
             <th></th>
             <% loop $listField %>
             <% if $ShowInList %>
-            <th>$Title</th>
+            <th>$Label</th>
             <% end_if %>
             <% end_loop %>
           </tr>
@@ -76,7 +76,7 @@
           <td style="width: 12%;">
             <select id="FilterField1" class="field-style search" name="FilterField1">
               <% loop $listField %>
-              <option <% if $Top.Filter.FilterField1 == $Name %>selected<% end_if %> value="$Name">$Title</option>
+              <option <% if $Top.Filter.FilterField1 == $Name %>selected<% end_if %> value="$Name">$Label</option>
               <% end_loop %>
             </select>
           </td>
@@ -103,7 +103,7 @@
           <td>
             <select class="field-style search" name="FilterField2">
               <% loop $listField %>
-              <option <% if $Top.Filter.FilterField2 == $Name %>selected<% end_if %> value="$Name">$Title</option>
+              <option <% if $Top.Filter.FilterField2 == $Name %>selected<% end_if %> value="$Name">$Label</option>
               <% end_loop %>
             </select>
           </td>
@@ -125,7 +125,7 @@
           <td>
             <select class="field-style search" name="OrderField">
               <% loop $listField %>
-              <option value="$Name" <% if $Top.Filter.OrderField == $Name %>selected<% end_if %>>$Title</option>
+              <option value="$Name" <% if $Top.Filter.OrderField == $Name %>selected<% end_if %>>$Label</option>
               <% end_loop %>
             </select>
           </td>
@@ -212,7 +212,7 @@
     });
     $("#edit").on("click", function () {
       if (id === 0) {
-        alert("Pilih data terlebih dahulu");
+        alert("Pilih data terlebih dahulu "+id);
       } else {
         $("#dialogMain").dialog("open");
         $.ajax({
@@ -230,7 +230,7 @@
     });
     $("#delete").on("click", function () {
       if (id === 0) {
-        alert("Pilih data terlebih dahulu");
+        alert("Pilih data terlebih dahulu "+id);
       } else {
         if (confirm("Anda akan menghapus data ini?")) {
           $.ajax({
@@ -310,7 +310,7 @@
     window.focus();
     win.close();
     //alert(browse_id);
-    $('#'+browse_id).val(returnValue.ID);
+    $('#'+browse_id).val(returnValue.Column);
     //$('#shipperid').val(returnValue.id);
   }
 

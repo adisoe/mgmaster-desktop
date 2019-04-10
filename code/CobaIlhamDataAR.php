@@ -8,8 +8,8 @@ class CobaIlhamDataAR extends MGMasterDesktopAR{
   
   var $table_fields = array(
     array(
-      'Title' => 'IdTJual',
-      'ID' => 'idtjual',  // harus huruf kecil
+      'Label' => 'IdTJual',
+      'Column' => 'idtjual',  // harus huruf kecil
       'Type' => 'browse',
       'BrowseModule' => 'Customer',
       'Required' => true,
@@ -22,8 +22,8 @@ class CobaIlhamDataAR extends MGMasterDesktopAR{
       'ShowInList' => true
     ),
     array(
-      'Title' => 'BuktiTJual',
-      'ID' => 'buktitjual',
+      'Label' => 'BuktiTJual',
+      'Column' => 'buktitjual',
       'Type' => 'text',
       'Required' => true,
       'Name' => 'BuktiTJual',
@@ -36,8 +36,8 @@ class CobaIlhamDataAR extends MGMasterDesktopAR{
       'DefaultValue' => 123
     ),
     array(
-      'Title' => 'NamaKirim',
-      'ID' => 'namakirim',
+      'Label' => 'NamaKirim',
+      'Column' => 'namakirim',
       'Type' => 'text',
       'Required' => true,
       'Name' => 'NamaKirim',
@@ -50,8 +50,8 @@ class CobaIlhamDataAR extends MGMasterDesktopAR{
       'DefaultValue' => 678
     ),
     array(
-      'Title' => 'TglTJual',
-      'ID' => 'tgltjual',
+      'Label' => 'TglTJual',
+      'Column' => 'tgltjual',
       'Type' => 'date',
       'Required' => true,
       'Name' => 'TglTJual',
