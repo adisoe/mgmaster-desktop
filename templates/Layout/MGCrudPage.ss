@@ -1,39 +1,39 @@
 <div class="container">
   <div class="content-navigation">
     <div class="nav-icon">
-      <a href="javascript:void(0);" id="First" class="navigation" data-id="$Navigation.First" title="First"><img width="35" src="{$ThemeDir}/images/first.png"/></a>
+      <a href="javascript:void(0);" id="First" class="navigation" data-id="$Navigation.First" title="First"><img width="35" src="mgmaster-desktop/css/images/first.png"/></a>
     </div>
     <div class="nav-icon">
-      <a href="javascript:void(0);" id="Prev" class="navigation" data-id="$Navigation.Prev" title="Previous"><img width="35" src="{$ThemeDir}/images/prev.png"/></a>
+      <a href="javascript:void(0);" id="Prev" class="navigation" data-id="$Navigation.Prev" title="Previous"><img width="35" src="mgmaster-desktop/css/images/prev.png"/></a>
     </div>
     <div class="nav-icon">
-      <a href="javascript:void(0);" id="Next" class="navigation" data-id="$Navigation.Next" title="Next"><img width="35" src="{$ThemeDir}/images/next.png"/></a>
+      <a href="javascript:void(0);" id="Next" class="navigation" data-id="$Navigation.Next" title="Next"><img width="35" src="mgmaster-desktop/css/images/next.png"/></a>
     </div>
     <div class="nav-icon">
-      <a href="javascript:void(0);" id="Last" class="navigation" data-id="$Navigation.Last" title="Last"><img width="35" src="{$ThemeDir}/images/last.png"/></a>
+      <a href="javascript:void(0);" id="Last" class="navigation" data-id="$Navigation.Last" title="Last"><img width="35" src="mgmaster-desktop/css/images/last.png"/></a>
     </div>
     <div class="right-navigation">
       <a class="icon-button" href="javascript:void(0);" id="add" title="New">
         <div class="nav-icon">
-          <img width="35" src="{$ThemeDir}/images/add-active.png"/>
+          <img width="35" src="mgmaster-desktop/css/images/add-active.png"/>
           <div class="nav-icon-text-right">New</div>
         </div>
       </a>
       <a class="icon-button" href="javascript:void(0);" id="edit" title="Edit">
         <div class="nav-icon">
-          <img width="35" src="{$ThemeDir}/images/edit-active.png"/>
+          <img width="35" src="mgmaster-desktop/css/images/edit-active.png"/>
           <div class="nav-icon-text-right">Edit</div>
         </div>
       </a>
       <a class="icon-button" href="javascript:void(0);" id="delete" title="Delete">
         <div class="nav-icon">
-          <img width="35" src="{$ThemeDir}/images/delete-active.png"/>
+          <img width="35" src="mgmaster-desktop/css/images/delete-active.png"/>
           <div class="nav-icon-text-right">Delete</div>
         </div>
       </a>
       <a class="icon-button" href="javascript:void(0);" title="Close">
         <div class="nav-icon">
-          <img width="35" src="{$ThemeDir}/images/close.png"/>
+          <img width="35" src="mgmaster-desktop/css/images/close.png"/>
           <div class="nav-icon-text-right">Close</div>
         </div>
       </a>
@@ -151,13 +151,13 @@
     <div class="right-navigation">
       <a class="icon-button" href="javascript:void(0);" id="saveData" title="Save">
         <div class="nav-icon">
-          <img width="35" src="{$ThemeDir}/images/save-active.png"/>
+          <img width="35" src="mgmaster-desktop/css/images/save-active.png"/>
           <div class="nav-icon-text-right">Save</div>
         </div>
       </a>
       <a class="icon-button" href="javascript:void(0);" title="Back" id="close">
         <div class="nav-icon">
-          <img width="35" src="{$ThemeDir}/images/back-active.png"/>
+          <img width="35" src="mgmaster-desktop/css/images/back-active.png"/>
           <div class="nav-icon-text-right">Close</div>
         </div>
       </a>
